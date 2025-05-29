@@ -2,7 +2,7 @@
 
 import { getServerSession } from 'next-auth';
 import { headers } from 'next/headers';
-import { authOptions } from 'app/lib/authOptions';
+import { authOptions } from 'app/features/auth/authOptions';
 import { findUserIdByProvider } from 'app/repo/userRepo';
 import {
   ExerciseRequestParamsSchema,
@@ -18,10 +18,10 @@ import {
 import {
   generateAndValidateExercise,
   type ExerciseGenerationOptions,
-} from 'app/lib/ai/exercise-generator';
+} from 'app/actions/ai/exercise-generator';
 import { type ExerciseGenerationParams } from 'app/domain/ai';
-import { type Result, type ActionError, success, failure } from 'app/lib/utils/result-types';
-import { getRandomTopicForLevel } from 'app/domain/topics';
+import { type Result, type ActionError, success, failure } from 'app/utils/result-types';
+import { extractZodErrors } from 'app/utils/errorUtils';
 import { getGrammarGuidance, getVocabularyGuidance } from 'app/domain/language-guidance';
 import { LANGUAGES } from 'app/domain/language';
 import {
@@ -37,7 +37,7 @@ import {
   type QuizRow,
 } from 'app/repo/quizRepo';
 import { z } from 'zod';
-import { extractZodErrors } from 'app/lib/utils/errorUtils';
+// import { extractZodErrors } from 'app/lib/utils/errorUtils'; // This line is a duplicate and points to an old path, removing
 
 const getDbUserIdFromSession = (
   session: { user: { id?: string | null; provider?: string | null } } | null

@@ -1,7 +1,7 @@
 'use server';
 
 import { getServerSession } from 'next-auth/next';
-import { authOptions } from 'app/lib/authOptions';
+import { authOptions } from 'app/features/auth/authOptions';
 import { z } from 'zod';
 import {
   QuizDataSchema,
@@ -19,7 +19,7 @@ import {
 import { createFeedback } from 'app/repo/feedbackRepo';
 import { CEFR_LEVELS, ProgressUpdateResult } from 'app/domain/progress';
 import { CEFRLevel, CEFR_LEVEL_INDICES } from 'app/domain/language-guidance';
-import { extractZodErrors } from 'app/lib/utils/errorUtils';
+import { extractZodErrors } from 'app/utils/errorUtils';
 
 export const getAuthenticatedSessionUser = async (): Promise<SessionUser | null> => {
   const session = await getServerSession(authOptions);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderTableCellValue } from 'app/lib/utils/rendering';
+import { renderTableCellValue } from 'app/utils/rendering';
 
 interface DataTableBodyProps<T extends Record<string, unknown>> {
   headers: (keyof T)[];

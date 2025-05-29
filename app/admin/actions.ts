@@ -1,7 +1,7 @@
 'use server';
 
 import { getServerSession } from 'next-auth';
-import { authOptions } from 'app/lib/authOptions';
+import { authOptions } from 'app/features/auth/authOptions';
 import {
   getAllTableNames as repoGetAllTableNames,
   getTableData as repoGetTableData,

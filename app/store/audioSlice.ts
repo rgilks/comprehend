@@ -3,7 +3,7 @@ import { type Language, SPEECH_LANGUAGES } from 'app/domain/language';
 import type { TextGeneratorState } from './textGeneratorStore';
 import { translateWordWithGoogle } from 'app/actions/translate';
 import type { VoiceInfo } from 'app/domain/schemas';
-import { filterAndFormatVoices } from 'app/lib/utils/speech';
+import { filterAndFormatVoices } from 'app/utils/speech';
 
 export interface AudioSlice {
   isSpeechSupported: boolean;
